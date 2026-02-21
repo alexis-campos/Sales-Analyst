@@ -1,41 +1,41 @@
-# Analista de Ventas - Java Streams API
+# Sales Analyst - Java Streams API
 
-Este proyecto es un motor de análisis de datos de ventas construido con **Java Moderno**. Fue diseñado con una arquitectura limpia y un enfoque **100% declarativo**, eliminando por completo el uso de bucles tradicionales (`for`, `while`) a favor de la **Stream API** de Java.
+This project is a sales data analysis engine built with **Modern Java**. It was designed with a clean architecture and a **100% declarative** approach, completely eliminating the use of traditional loops (`for`, `while`) in favor of the Java **Stream API**.
 
-Este proyecto forma parte de mi entrenamiento intensivo para dominar las bases sólidas de Java antes de transicionar a Spring Boot.
+This project is part of my intensive training to master solid Java fundamentals before transitioning to Spring Boot.
 
-## Conceptos Técnicos Aplicados
+## Applied Technical Concepts
 
-* **Programación Declarativa:** Procesamiento de colecciones mediante pipelines de Streams (`filter`, `map`, `reduce`, `collect`).
-* **Inmutabilidad (Records):** Uso de `java.lang.Record` (Java 14+) para modelar los objetos de transferencia de datos (DTOs) sin código basura (boilerplate).
-* **Manejo Seguro de Nulos:** Implementación de `Optional<T>` para evitar `NullPointerException` en consultas de búsqueda (`max`, `findFirst`).
-* **Agrupamiento Avanzado:** Uso de `Collectors.groupingBy` y `Collectors.summingDouble` para generar reportes financieros complejos.
-* **Separación de Responsabilidades:** Arquitectura dividida en Modelo (`Venta`), Datos (`RepositorioVentas`), Lógica de Negocio (`AnalistaDeVentas`) y Vista/Orquestador (`Main`).
+* **Declarative Programming:** Collection processing using Stream pipelines (`filter`, `map`, `reduce`, `collect`).
+* **Immutability (Records):** Use of `java.lang.Record` (Java 14+) to model Data Transfer Objects (DTOs) without boilerplate code.
+* **Safe Null Handling:** Implementation of `Optional<T>` to prevent `NullPointerException` in search queries (`max`, `findFirst`).
+* **Advanced Grouping:** Use of `Collectors.groupingBy` and `Collectors.summingDouble` to generate complex financial reports.
+* **Separation of Concerns:** Architecture divided into Model (`Venta`), Data (`RepositorioVentas`), Business Logic (`AnalistaDeVentas`), and View/Orchestrator (`Main`).
 
-## Funcionalidades del Analista
+## Analyst Features
 
-El sistema procesa un lote de 100 transacciones y es capaz de resolver las siguientes consultas en tiempo de ejecución:
+The system processes a batch of 100 transactions and can resolve the following queries at runtime:
 
-1.  **Total por Categoría Específica:** Calcula la sumatoria exacta de ingresos para la categoría "Electrónica".
-2.  **Identificación de Picos:** Encuentra la transacción con el monto más alto usando `Comparator`.
-3.  **Filtrado de Clientes Exclusivos:** Extrae una lista limpia de clientes que superan un ticket de compra específico.
-4.  **Cálculo de Promedios:** Obtiene el promedio general de ventas del lote.
-5.  **Reporte de Rentabilidad:** Genera un diccionario (`Map`) con el total de ingresos agrupado por cada categoría.
-6.  **Categoría Top:** Evalúa el reporte de rentabilidad para extraer la categoría más lucrativa del negocio.
+1.  **Total by Specific Category:** Calculates the exact sum of revenue for the "Electrónica" (Electronics) category.
+2.  **Peak Identification:** Finds the transaction with the highest amount using `Comparator`.
+3.  **Exclusive Client Filtering:** Extracts a clean list of clients who exceed a specific purchase ticket amount.
+4.  **Average Calculation:** Obtains the overall average sales of the batch.
+5.  **Profitability Report:** Generates a dictionary (`Map`) with the total revenue grouped by each category.
+6.  **Top Category:** Evaluates the profitability report to extract the most lucrative category for the business.
 
-## Estructura del Código
+## Code Structure
 
-* `Venta.java`: Record inmutable que define la estructura de una transacción (id, fecha, cliente, categoría, monto).
-* `RepositorioVentas.java`: Simula una base de datos entregando una lista estática de 100 registros.
-* `AnalistaDeVentas.java`: El motor (Service) que contiene toda la lógica de negocio y las operaciones de Stream.
-* `Main.java`: El punto de entrada que orquesta la ejecución e imprime los reportes formateados (`DecimalFormat`).
+* `Venta.java`: Immutable record defining the structure of a transaction (id, date, client, category, amount).
+* `RepositorioVentas.java`: Simulates a database by providing a static list of 100 records.
+* `AnalistaDeVentas.java`: The engine (Service) containing all the business logic and Stream operations.
+* `Main.java`: The entry point that orchestrates the execution and prints the formatted reports (`DecimalFormat`).
 
-## Cómo ejecutar el proyecto
+## How to Run the Project
 
-1. Clona este repositorio.
-2. Abre el proyecto en tu IDE preferido (IntelliJ IDEA recomendado).
-3. Asegúrate de tener instalado **JDK 14 o superior** (debido al uso de `records`).
-4. Ejecuta la clase `Main.java`.
+1. Clone this repository.
+2. Open the project in your preferred IDE (IntelliJ IDEA recommended).
+3. Ensure you have **JDK 14 or higher** installed (due to the use of `records`).
+4. Run the `Main.java` class.
 
 ---
-*Desarrollado por Alexis Campos*
+*Developed by Alexis Campos*
